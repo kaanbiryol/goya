@@ -1,0 +1,16 @@
+.colors:
+  - &red
+    0xFFFF9000
+  - &blue
+    0xFF87CEFA
+
+.Text:
+  .align: center
+  .style:
+    color: red
+    .moar:
+      moar2: moarred
+      moar3: moarblue
+
+.Container:
+  .color: *blue
