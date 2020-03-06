@@ -6,7 +6,7 @@ import 'package:goya/src/goya_builder.dart';
 import 'package:goya/src/theme_symbol.dart';
 
 extension ContainerExtension on Container {
-  Container paint(Container goyaContainer) {
+  Container prepare(Container goyaContainer) {
     Color goyaColor = (goyaContainer.decoration as BoxDecoration).color;
     return Container(
       key: key,
@@ -29,6 +29,6 @@ class ContainerBuilder implements GoyaBuilderStrategy<Container> {
     // dynamic bbc = finder(using.goyaValue, StyleIdentifier.color);
     Color color = Color(stringFinder(using.identifier, StyleIdentifier.color));
     Container goyaContainer = Container(color: color);
-    return originalWidget.paint(goyaContainer);
+    return originalWidget.prepare(goyaContainer);
   }
 }

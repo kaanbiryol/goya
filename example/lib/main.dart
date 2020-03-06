@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Goya").goya(key: Keys.text),
               height: 200,
               width: 200,
-            ).goya(key: Keys.container),
+            ).goya(key: Keys.container)
           ],
         ),
       ),

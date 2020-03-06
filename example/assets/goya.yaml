@@ -1,16 +1,19 @@
 .colors:
-  - &red
+  - &orange
     0xFFFF9000
   - &blue
     0xFF87CEFA
 
 .Text:
   .align: center
-  .style:
-    color: red
-    .moar:
-      moar2: moarred
-      moar3: moarblue
+  .color: *blue
+  .backgroundColor: *orange
+  .fontSize: 48.0
+  .fontWeight: 8
+  .letterSpacing: 0.1
+  .wordSpacing: 0.2
+  .fontFamily: Pacifico
+  .padding: [8.0, 50.0, 8.0, 0.0]
 
 .Container:
   .color: *blue

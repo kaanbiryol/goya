@@ -1,11 +1,15 @@
 import '../goya.dart';
 
-bool isImperative(Type type) {
+bool isPrimitive(Type type) {
   switch (type) {
     case String:
       return true;
       break;
     case int:
+      return true;
+    case double:
+      return true;
+    case List:
       return true;
     default:
       return false;
@@ -17,8 +21,7 @@ dynamic finder(dynamic element, String styleIdentifier) {
     return null;
   }
   var elementValue = element.value;
-  if (isImperative(elementValue.runtimeType) &&
-      element.key == styleIdentifier) {
+  if (isPrimitive(elementValue.runtimeType) && element.key == styleIdentifier) {
     return elementValue;
   }
   for (dynamic entry in elementValue.entries) {
