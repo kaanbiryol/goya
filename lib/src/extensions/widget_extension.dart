@@ -21,10 +21,10 @@ extension WidgetExtension on Widget {
     var insets =
         (finder(symbol.identifier, StyleIdentifier.padding) as YamlList)
             ?.doubleList();
-    return paint(paddingInsets: insets);
+    return _paint(paddingInsets: insets);
   }
 
-  Widget paint({List<double> paddingInsets}) {
+  Widget _paint({List<double> paddingInsets}) {
     return padding(paddingInsets);
   }
 

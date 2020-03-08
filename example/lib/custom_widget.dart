@@ -12,7 +12,7 @@ class CustomWidgetGoyaBuilder extends GoyaBuilderStrategy<CustomWidget> {
     var color =
         Color(finder(using.identifier, CustomStyleIdentifier.customProperty));
     CustomWidget goyaContainer = CustomWidget(color: color);
-    return originalWidget.prepare(goyaContainer);
+    return originalWidget.prepare(goyaContainer).preparePaint(using);
   }
 }
 
