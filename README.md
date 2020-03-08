@@ -1,14 +1,7 @@
+
 # goya
  
 **Goya** is a style/theme manager for Flutter apps.
-
-## Installation
-
-Just import **goya** into your `pubspec.yaml`
-```yaml
-dependencies:
-  goya: "^0.1"
-```
 
 ## Usage
 **Goya** reads your style traits from a YAML file named `goya.yaml`. Either pre-define this file wherever you want or fetch it over a network request.
@@ -18,8 +11,10 @@ dependencies:
 You need to use `GoyaProvider` as the root widget of your application. Simply set the path to your `goya.yaml` (you might fetch it over a network request then save to a file) and you are good to go.
 
 ```dart
-GoyaProvider(path: "assets/goya.yaml", child: MyHomePage(title: 'Goya Demo'))
+GoyaProvider(path: "assets/goya.yaml", child: MyHomePage(title: 'Goya Demo')),
 ```
+
+**Theming using Goya** 
 
 After setting up, all you need to do is tell Goya which key it will use for a specific widget and it takes care of the rest!
 
@@ -29,6 +24,9 @@ After setting up, all you need to do is tell Goya which key it will use for a sp
 //You can define different style traits such as ".TextPrimary", ".TextHeader" etc. in goya.yaml
 Text("Goya").goya(key: Keys.text))
 ```
+
+**Overriding the goya.yaml**
+
 If you wish to override some property you can just set it as usual;
 
 ```dart
@@ -36,8 +34,41 @@ If you wish to override some property you can just set it as usual;
 Text("Goya", textAlign: TextAlign.left).goya(key: Keys.text)
 ```
 
-**Example goya.yaml**
+## Theme/Style Custom Widgets
 
+If you have a custom widget or a widget that **Goya** doesn't support natively you can easily implement necessary styling functions.
+
+First, create a class that extends to `StyleIdentifier` and name your custom property.
+
+```dart
+class CustomStyleIdentifier extends StyleIdentifier {
+  static const String customProperty = ".customProperty";
+}
+```
+
+Then we need to create another class which  extends `GoyaBuilderStrategy<YOUR_CUSTOM_WIDGET>`
+
+```dart
+class CustomWidgetGoyaBuilder extends GoyaBuilderStrategy<CustomWidget> {
+  @override
+  Widget build(CustomWidget originalWidget, {ThemeSymbol using}) {
+    Color color = Color(
+        finder(using.identifier, CustomStyleIdentifier.customProperty));
+    CustomWidget goyaContainer = CustomWidget(color: color);
+    return originalWidget.toGoya(goyaContainer).preparePaint(using);
+  }
+}
+```
+
+Lastly, create an extension method for your custom widget.
+```dart
+extension CustomWidgetExtension on CustomWidget {
+  CustomWidget toGoya(CustomWidget goyaWidget) {
+    return CustomWidget(color: color ?? goyaWidget.color);
+  }
+}
+```
+**Example goya.yaml**
 ```yaml
 #pre-define the colors
 .colors:
@@ -45,7 +76,7 @@ Text("Goya", textAlign: TextAlign.left).goya(key: Keys.text)
     0xFFFF9000
   - &blue
     0xFF87CEFA
-    
+
 .Text:
   .align: center
   .color: *blue
@@ -59,5 +90,8 @@ Text("Goya", textAlign: TextAlign.left).goya(key: Keys.text)
 
 .Container:
   .color: *blue
+
+.Custom:
+  .customProperty: *orange
 
 ```
