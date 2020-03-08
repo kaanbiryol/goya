@@ -8,7 +8,7 @@ import 'package:goya/src/extensions/widget_extension.dart';
 import '../goya_builder.dart';
 
 extension TextExtension on Text {
-  Text prepare(Text goyaText) {
+  Text toGoya(Text goyaText) {
     return Text(goyaText.data,
         key: goyaText.key,
         style: goyaText.style,
@@ -54,8 +54,8 @@ class TextBuilder implements GoyaBuilderStrategy<Text> {
     Text goyaText = Text(originalWidget.data,
         textAlign: GoyaText.align(alignmentValue),
         style: originalWidget.style != null
-            ? originalWidget.style.prepare(goyaTextStyle)
-            : TextStyle().prepare(goyaTextStyle));
-    return originalWidget.prepare(goyaText).preparePaint(using);
+            ? originalWidget.style.toGoya(goyaTextStyle)
+            : TextStyle().toGoya(goyaTextStyle));
+    return originalWidget.toGoya(goyaText).preparePaint(using);
   }
 }

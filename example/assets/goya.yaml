@@ -13,7 +13,7 @@
   .letterSpacing: 0.1
   .wordSpacing: 0.2
   .fontFamily: Pacifico
-  .padding: [8.0, 50.0, 8.0, 0.0]
+  .padding: [8.0, 16.0, 8.0, 16.0]
 
 .Container:
   .color: *blue

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 extension TextExtension on TextStyle {
-  TextStyle prepare(TextStyle goyaTextStyle) {
+  TextStyle toGoya(TextStyle goyaTextStyle) {
     return TextStyle(
       inherit: inherit,
       color: color ?? goyaTextStyle.color,

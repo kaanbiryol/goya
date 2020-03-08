@@ -12,7 +12,7 @@ class CustomWidgetGoyaBuilder extends GoyaBuilderStrategy<CustomWidget> {
     var color =
         Color(finder(using.identifier, CustomStyleIdentifier.customProperty));
     CustomWidget goyaContainer = CustomWidget(color: color);
-    return originalWidget.prepare(goyaContainer).preparePaint(using);
+    return originalWidget.toGoya(goyaContainer).preparePaint(using);
   }
 }
 
@@ -31,7 +31,7 @@ class CustomWidget extends StatelessWidget {
         ),
         FlatButton(
           onPressed: () {},
-          child: Text("Button"),
+          child: Text("Goya Button"),
           color: Colors.red,
         )
       ],
@@ -40,7 +40,7 @@ class CustomWidget extends StatelessWidget {
 }
 
 extension CustomWidgetExtension on CustomWidget {
-  CustomWidget prepare(CustomWidget goyaWidget) {
+  CustomWidget toGoya(CustomWidget goyaWidget) {
     return CustomWidget(color: color ?? goyaWidget.color);
   }
 }
