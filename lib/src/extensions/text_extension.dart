@@ -28,20 +28,20 @@ extension TextExtension on Text {
 class TextBuilder implements GoyaBuilderStrategy<Text> {
   @override
   Widget build(Text originalWidget, {ThemeSymbol using}) {
-    var alignmentValue = stringFinder(using.identifier, StyleIdentifier.align);
-    var colorValue = stringFinder(using.identifier, StyleIdentifier.color);
+    var alignmentValue = finder(using.identifier, StyleIdentifier.align);
+    var colorValue = finder(using.identifier, StyleIdentifier.color);
     var backgroundColorValue =
-        stringFinder(using.identifier, StyleIdentifier.backgroundColor);
+        finder(using.identifier, StyleIdentifier.backgroundColor);
     var fontSizeValue =
-        stringFinder(using.identifier, StyleIdentifier.fontSize);
+        finder(using.identifier, StyleIdentifier.fontSize);
     var fontWeightValue =
-        stringFinder(using.identifier, StyleIdentifier.fontWeight);
+        finder(using.identifier, StyleIdentifier.fontWeight);
     var letterSpacingValue =
-        stringFinder(using.identifier, StyleIdentifier.letterSpacing);
+        finder(using.identifier, StyleIdentifier.letterSpacing);
     var wordSpacingValue =
-        stringFinder(using.identifier, StyleIdentifier.wordSpacing);
+        finder(using.identifier, StyleIdentifier.wordSpacing);
     var fontFamilyValue =
-        stringFinder(using.identifier, StyleIdentifier.fontFamily);
+        finder(using.identifier, StyleIdentifier.fontFamily);
 
     TextStyle goyaTextStyle = TextStyle(
         color: Color(colorValue),

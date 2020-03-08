@@ -10,7 +10,6 @@ class ThemeLoader extends ThemeLoadable {
   @override
   Future<YamlMap> loadThemeProperties(
       {@required BuildContext context, @required String path}) async {
-    //TODO: big files?
     var yamlFile = await DefaultAssetBundle.of(context).loadString(path);
     YamlMap map = loadYaml(yamlFile);
     return map;

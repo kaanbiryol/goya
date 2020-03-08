@@ -17,3 +17,6 @@
 
 .Container:
   .color: *blue
+
+.Custom:
+  .customProperty: *blue

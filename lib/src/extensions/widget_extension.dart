@@ -6,8 +6,8 @@ import 'package:goya/src/extensions/yaml_extension.dart';
 import '../finder.dart';
 
 extension WidgetGoyaExtension on Widget {
-  Widget goya({@required ThemeSymbol key}) {
-    var strategy = type(runtimeType);
+  Widget goya({@required ThemeSymbol key, GoyaBuilderStrategy builder}) {
+    var strategy = builder ?? type(runtimeType);
     return strategy.build(this, using: key);
   }
 }
@@ -19,8 +19,8 @@ extension WidgetExtension on Widget {
 
   Widget preparePaint(ThemeSymbol symbol) {
     var insets =
-        (stringFinder(symbol.identifier, StyleIdentifier.padding) as YamlList)
-            .doubleList();
+        (finder(symbol.identifier, StyleIdentifier.padding) as YamlList)
+            ?.doubleList();
     return paint(paddingInsets: insets);
   }
 

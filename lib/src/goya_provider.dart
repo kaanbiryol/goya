@@ -3,9 +3,11 @@ import 'goya.dart';
 
 class GoyaProvider extends StatefulWidget {
   final Widget child;
+  final Widget defaultWidget;
   final String path;
 
-  const GoyaProvider({Key key, @required this.path, @required this.child})
+  const GoyaProvider(
+      {Key key, @required this.path, @required this.child, this.defaultWidget})
       : super(key: key);
 
   @override
@@ -31,7 +33,7 @@ class _GoyaProviderState extends State<GoyaProvider> {
             return widget.child;
             break;
           default:
-            return Container();
+            return widget.defaultWidget ?? Container();
         }
       },
     );

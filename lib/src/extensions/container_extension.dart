@@ -26,8 +26,7 @@ extension ContainerExtension on Container {
 class ContainerBuilder implements GoyaBuilderStrategy<Container> {
   @override
   Widget build(Container originalWidget, {ThemeSymbol using}) {
-    // dynamic bbc = finder(using.goyaValue, StyleIdentifier.color);
-    Color color = Color(stringFinder(using.identifier, StyleIdentifier.color));
+    Color color = Color(finder(using.identifier, StyleIdentifier.color));
     Container goyaContainer = Container(color: color);
     return originalWidget.prepare(goyaContainer);
   }

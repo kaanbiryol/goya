@@ -1,3 +1,4 @@
+import 'package:example/custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:goya/goya.dart';
 import 'keys.dart';
@@ -7,7 +8,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,18 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    dynamic abc = 0xff000000;
-    //print(Goya.map.toString());
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -51,6 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            CustomWidget()
+                .goya(key: Keys.custom, builder: CustomWidgetGoyaBuilder()),
             Container(
               child: Text("Goya").goya(key: Keys.text),
               height: 200,
@@ -58,11 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ).goya(key: Keys.container)
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
