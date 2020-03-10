@@ -10,7 +10,8 @@ class ThemeSymbol extends ThemeSymbolable {
 }
 
 extension ThemeSymbolExtension on ThemeSymbol {
-  dynamic get goyaValue => Goya.map[identifier];
+  dynamic goyaValue(String styleIdentifier) =>
+      Goya.map[identifier][styleIdentifier];
 }
 
 abstract class StyleIdentifier {

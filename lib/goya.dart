@@ -7,5 +7,4 @@ export 'package:goya/src/goya_provider.dart';
 export 'package:goya/src/extensions/text_extension.dart';
 export 'package:goya/src/extensions/widget_extension.dart';
 export 'package:goya/src/goya_builder.dart';
-export 'package:goya/src/finder.dart';
 export 'package:goya/src/goya.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:goya/src/finder.dart';
 import 'package:goya/src/theme_symbol.dart';
 import 'package:goya/src/adapters/text_adapters.dart';
 import 'package:goya/src/extensions/text_style_extension.dart';
@@ -28,20 +27,14 @@ extension TextExtension on Text {
 class TextBuilder implements GoyaBuilderStrategy<Text> {
   @override
   Widget build(Text originalWidget, {ThemeSymbol using}) {
-    var alignmentValue = finder(using.identifier, StyleIdentifier.align);
-    var colorValue = finder(using.identifier, StyleIdentifier.color);
-    var backgroundColorValue =
-        finder(using.identifier, StyleIdentifier.backgroundColor);
-    var fontSizeValue =
-        finder(using.identifier, StyleIdentifier.fontSize);
-    var fontWeightValue =
-        finder(using.identifier, StyleIdentifier.fontWeight);
-    var letterSpacingValue =
-        finder(using.identifier, StyleIdentifier.letterSpacing);
-    var wordSpacingValue =
-        finder(using.identifier, StyleIdentifier.wordSpacing);
-    var fontFamilyValue =
-        finder(using.identifier, StyleIdentifier.fontFamily);
+    var alignmentValue = using.goyaValue(StyleIdentifier.align);
+    var colorValue = using.goyaValue(StyleIdentifier.color);
+    var backgroundColorValue = using.goyaValue(StyleIdentifier.backgroundColor);
+    var fontSizeValue = using.goyaValue(StyleIdentifier.fontSize);
+    var fontWeightValue = using.goyaValue(StyleIdentifier.fontWeight);
+    var letterSpacingValue = using.goyaValue(StyleIdentifier.letterSpacing);
+    var wordSpacingValue = using.goyaValue(StyleIdentifier.wordSpacing);
+    var fontFamilyValue = using.goyaValue(StyleIdentifier.fontFamily);
 
     TextStyle goyaTextStyle = TextStyle(
         color: Color(colorValue),

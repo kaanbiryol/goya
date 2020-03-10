@@ -18,6 +18,12 @@ class _GoyaProviderState extends State<GoyaProvider> {
   Future goyaInitializer;
 
   @override
+  void reassemble() {
+    super.reassemble();
+    goyaInitializer = Goya.initialize(context, widget.path);
+  }
+
+  @override
   void initState() {
     super.initState();
     goyaInitializer = Goya.initialize(context, widget.path);

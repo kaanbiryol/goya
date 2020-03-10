@@ -3,7 +3,6 @@ import 'package:goya/src/goya_builder.dart';
 import 'package:goya/src/theme_symbol.dart';
 import 'package:yaml/yaml.dart';
 import 'package:goya/src/extensions/yaml_extension.dart';
-import '../finder.dart';
 
 extension WidgetGoyaExtension on Widget {
   Widget goya({@required ThemeSymbol key, GoyaBuilderStrategy builder}) {
@@ -19,8 +18,7 @@ extension WidgetExtension on Widget {
 
   Widget preparePaint(ThemeSymbol symbol) {
     var insets =
-        (finder(symbol.identifier, StyleIdentifier.padding) as YamlList)
-            ?.doubleList();
+        (symbol.goyaValue(StyleIdentifier.padding) as YamlList)?.doubleList();
     return _paint(paddingInsets: insets);
   }
 

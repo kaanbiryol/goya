@@ -9,8 +9,7 @@ class CustomStyleIdentifier extends StyleIdentifier {
 class CustomWidgetGoyaBuilder extends GoyaBuilderStrategy<CustomWidget> {
   @override
   Widget build(CustomWidget originalWidget, {ThemeSymbol using}) {
-    var color =
-        Color(finder(using.identifier, CustomStyleIdentifier.customProperty));
+    var color = Color(using.goyaValue(CustomStyleIdentifier.customProperty));
     CustomWidget goyaContainer = CustomWidget(color: color);
     return originalWidget.toGoya(goyaContainer).preparePaint(using);
   }
