@@ -1,8 +1,7 @@
 name: goya
-description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+description: yaml based style/theme manager for flutter apps.
+version: 0.1.0
+homepage: https://github.com/kaanbiryol/goya
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
