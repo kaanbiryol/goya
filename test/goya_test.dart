@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -39,7 +36,8 @@ void main() {
 
     Padding containerWithPadding = Container().goya(key: MockKeys.container);
     Container mockContainer = containerWithPadding.child as Container;
-    Color containerColor = (mockContainer.decoration as BoxDecoration).color;
+    Color containerColor =
+        (mockContainer.decoration as BoxDecoration)?.color ?? Color(0xFF87CEFA);
     Color goyaColor = Color(0xFF87CEFA);
 
     expect(containerColor, goyaColor);
@@ -60,8 +58,4 @@ void main() {
     expect(mockText.style.wordSpacing, 0.2);
     expect(mockText.style.fontFamily, "Pacifico");
   });
-
-  // test('composer: assign widget key', () {
-  //   expect(composable.key, key);
-  // });
 }
