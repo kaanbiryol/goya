@@ -1,6 +1,10 @@
 
 # goya
  
+[![Build Status](https://travis-ci.com/kaanbiryol/goya.svg?branch=master)](https://travis-ci.com/kaanbiryol/goya)
+[![codecov](https://codecov.io/gh/kaanbiryol/goya/branch/master/graph/badge.svg)](https://codecov.io/gh/kaanbiryol/goya)
+[![pub package](https://img.shields.io/pub/v/goya.svg)](https://pub.dev/packages/goya)
+
 **Goya** is a style/theme manager for Flutter apps.
 
 ## Usage
