@@ -24,11 +24,10 @@ void main() {
   testWidgets('padding goya', (WidgetTester tester) async {
     await tester.pumpWidget(mockWidget);
 
-    Widget mockContainer = Container().goya(key: MockKeys.container);
+    Padding textWithPadding = Text("DATA").goya(key: MockKeys.text);
 
-    expect(mockContainer, isInstanceOf<Padding>());
-    expect((mockContainer as Padding).padding,
-        EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 16.0));
+    expect(textWithPadding, isInstanceOf<Padding>());
+    expect(textWithPadding.padding, EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 16.0));
   });
 
   testWidgets('container goya', (WidgetTester tester) async {
